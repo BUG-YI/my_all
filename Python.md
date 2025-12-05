@@ -1609,6 +1609,18 @@ compile方法可以不需要，findall和search方法里都有调用compile方�
 
 
 
+?P:分组
+
+
+
+
+
+
+
+
+
+
+
 #### 技巧
 
 ##### 先抓大在抓小
@@ -1663,7 +1675,7 @@ print(re.findall('(.*)', str1))  #['标准北京时间2025年10月7日，日历�
 
 
 
-### 爬虫
+### 爬虫基础
 
 #### 测试网站
 
@@ -2352,6 +2364,8 @@ Selenium是python三方库需要安装
 
 webdriver.浏览器驱动       #例如：edge驱动：webdriver.Edge()    #chrome驱动：webdriver.Chrome()等
 
+需要浏览器对应的驱动
+
 
 
 实例：
@@ -2446,8 +2460,7 @@ from selenium.webdriver.support import expected_conditions as ec
 driver = webdriver.Edge()
 
 try:
-    driver.get('https://exercise.kingname.info/exercise_advanced_ajax.html')
-    WebDriverWait(driver, 30).until(ec.presence_of_element_located((By.CLASS_NAME, 'content')))
+    driver.get('https://exercise.kingname.info/exercise_advanced_ajax.html')             WebDriverWait(driver,30).until(ec.presence_of_element_located((By.CLASS_NAME, 'content')))
 except ec:
     print('网页加载超时')
 
@@ -2507,7 +2520,109 @@ driver.quit()   #自动化操作完成，彻底关闭浏览器
 
 
 
+### 爬虫进阶
 
+#### cookie处理
+
+session对象=requests.session()  #获取session对象
+
+#登录请求
+
+login_data={‘username’=‘user’, ‘password’=‘pw’}
+
+session.post(‘网址’，data=login_data)
+
+
+
+> **referer**防盗链
+
+理解为当前请求的网址，他会去找源，找它前面的网址，称为溯源，没有找到不会返回想要的网址内容
+
+
+
+
+
+#### 代理IP
+
+```python
+import requests
+#代理IP
+proxies={
+	"https":"https://ip:端口"
+	"http":"http://ip:端口"
+}
+requests.get('网址',proxies=proxies)
+```
+
+
+
+#### scrapy框架（必学）
+
+需要下载scrapy模块
+
+```python
+pip install Scrapy
+```
+
+
+
+##### 创建项目框架
+
+在终端输入以下命令创建scrapy项目
+
+```python
+scrapy startproject 项目名
+```
+
+该路径下会出现scrapy框架
+
+```python
+mySpider/
+    scrapy.cfg
+    mySpider/
+        __init__.py
+        items.py
+        pipelines.py
+        settings.py
+        spiders/
+            __init__.py
+            ...
+```
+
+- scrapy.cfg: 项目的配置文件。
+- mySpider/: 项目的Python模块，将会从这里引用代码。
+- mySpider/items.py: 项目的目标文件。
+- mySpider/pipelines.py: 项目的管道文件。
+- mySpider/settings.py: 项目的设置文件。
+- mySpider/spiders/: 存储爬虫代码目录。
+
+> [!CAUTION]
+>
+> 在settings.py中要关掉`ROBOTSTXT_OBEY`，如果是`Ture`就改为`False`，不然很多网页都爬取不了
+>
+> 然后再将`DEFAULT_REQUEST_HEADERS`的注释关掉，再写入用户端设备标识user-agent，可以应对一些简单的反爬机制
+
+
+
+##### 创建爬虫
+
+scrapy genspider  爬虫名  网址域名
+
+
+
+##### 编写爬虫
+
+根据自己需求来
+
+
+
+##### 运行爬虫
+
+需要在创建的项目下用终端运行
+
+```python
+scrapy crawl  爬虫名
+```
 
 
 

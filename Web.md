@@ -134,6 +134,21 @@ html：超文本标记语言
 
 
 
+#### 锚点
+
+href=“#属性值”
+
+```html
+<div id="top">跳转到这里</div>
+<a href="#top">点击跳转</a>
+```
+
+
+
+
+
+
+
 #### 音频标签
 
 |      属性       |       作用       |        特殊说明         |
@@ -1462,6 +1477,27 @@ clip-path:inset(上裁剪距离 右裁剪 下裁剪 左裁剪)；
 
 
 
+### svg矢量图
+
+SVG 专用样式属性，替代普通 CSS 的`color`/`background`：
+
+|    SVG 属性    |         作用         |    对应 CSS 写法     |
+| :------------: | :------------------: | :------------------: |
+|     `fill`     | 填充颜色（图形内部） |    `fill: coral;`    |
+|    `stroke`    |   描边颜色（轮廓）   |   `stroke: #333;`    |
+| `stroke-width` |       描边粗细       | `stroke-width: 2px;` |
+|   `opacity`    |        透明度        |   `opacity: 0.8;`    |
+
+
+
+#### 内联式（推荐）
+
+```html
+<svg class="icon-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="10" stroke="coral" stroke-width="2"/>
+</svg>
+```
+
 
 
 ## javascript
@@ -2090,6 +2126,36 @@ document.createElement(参数)
 > 将创建的元素加入页面
 
 document.body.appendChild(元素对象)
+
+
+
+#### 获取窗口参数
+
+##### 获取物理屏幕尺寸（`screen` 对象）
+
+screen.width
+
+screen.height
+
+
+
+##### 获取浏览器视口尺寸（可见区域）
+
+window.innerWidth
+
+window.innerHeight
+
+
+
+##### 获取网页文档总尺寸（完整页面大小）
+
+获取**整个 HTML 文档的实际宽高**（包含滚动隐藏区域），是页面真实大小：
+
+document.documentElement.scrollWidth
+
+document.documentElement.clientWidth
+
+
 
 
 

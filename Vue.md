@@ -433,7 +433,9 @@ export default{
 
 
 
-`v-model:`
+#### `v-model:`
+
+应用于input输入框
 
 
 
@@ -3325,5 +3327,29 @@ app.mount('#app')
         }
     }
 </script>
+```
+
+
+
+
+
+
+
+## Pinia
+
+### 安装
+
+```cmd
+npm install pinia
+```
+
+
+
+创建js文件
+
+```js
+//导入defineStore
+import {defineStore} from 'pinia'
+
 ```
 

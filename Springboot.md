@@ -186,3 +186,106 @@ html
 </html>
 ```
 
+
+
+## redis配置
+
+```xml
+<dependency>
+    <groupId>org.springframework.data</groupId>
+    <artifactId>spring-data-redis</artifactId>
+</dependency>
+<dependency>
+    <groupId>redis.clients</groupId>
+    <artifactId>jedis</artifactId>
+</dependency>
+```
+
+
+
+```yaml
+```
+
+
+
+redis配置类
+
+```java
+package com.yi.springbootproject.Configuraton;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.connection.RedisClusterConfiguration;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
+import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
+import org.springframework.data.redis.connection.jedis.JedisClientConfiguration;
+import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.serializer.StringRedisSerializer;
+import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisPoolConfig;
+
+import java.time.Duration;
+
+
+@Configuration
+public class RedisConfig {
+    @Bean
+    public RedisConnectionFactory redisConnectionFactory(){
+        //设置单机远程配置地址
+        RedisStandaloneConfiguration standaloneConfiguration = new RedisStandaloneConfiguration("127.0.0.1",6379);
+
+        //集群redis服务器配置(括号中配置个IP地址)
+//        RedisClusterConfiguration clusterConfiguration=new RedisClusterConfiguration();
+
+
+//      连接池相关配置
+        JedisPoolConfig jedisPoolConfig=new JedisPoolConfig();
+        //最大连接数
+        jedisPoolConfig.setMaxTotal(8);
+        //最大空闲数
+        jedisPoolConfig.setMaxIdle(8);
+        //最小空闲
+        jedisPoolConfig.setMinIdle(1);
+        //最长等待时间,2分30秒
+        Duration d5 = Duration.parse("PT2M30S");
+        jedisPoolConfig.setMaxWait(d5);
+
+        //使用连接池
+        JedisClientConfiguration clientConfiguration=
+                JedisClientConfiguration.builder()
+                        .usePooling()
+                        .poolConfig(jedisPoolConfig)
+                        .build();
+
+        return new JedisConnectionFactory(standaloneConfiguration,clientConfiguration);
+    }
+    @Bean
+    public RedisTemplate<String,Object> redisTemplate(RedisConnectionFactory redisConnectionFactory){
+        RedisTemplate<String,Object> redisTemplate=new RedisTemplate<>();
+        redisTemplate.setConnectionFactory(redisConnectionFactory);
+
+        //序列化
+//        redisTemplate.setDefaultSerializer(new StringRedisSerializer());
+
+        return redisTemplate;
+    }
+}
+```
+
+
+
+简单使用
+
+```java
+public class A{
+    private final RedisTemplate<String,Object> redisTemplate;
+    public UserController(RedisTemplate<String, Object> redisTemplate) {
+        this.redisTemplate = redisTemplate;
+    }
+    
+    
+    public 
+}
+```
+

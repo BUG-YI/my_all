@@ -1,4 +1,4 @@
-# web网站入门
+# Web网站入门
 
 ## html
 
@@ -131,6 +131,21 @@ html：超文本标记语言
 `href=“#”`   表示空链接
 
 在新窗口打开  `target="_blank"`  
+
+
+
+#### 锚点
+
+href=“#属性值”
+
+```html
+<div id="top">跳转到这里</div>
+<a href="#top">点击跳转</a>
+```
+
+
+
+
 
 
 
@@ -1302,7 +1317,7 @@ box-sizing:border-box;
 
 #### 主轴对其方式
 
-属性名：justify-content
+属性名：justify-content（水平）
 
 | 属性值        | 效果                               |
 | ------------- | ---------------------------------- |
@@ -1314,6 +1329,174 @@ box-sizing:border-box;
 | space-evenly  |                                    |
 
 
+
+align-items（垂直）
+
+
+
+
+
+
+
+
+
+### css动画
+
+#### 3D转换
+
+##### rotateX（）方法
+
+围绕其中一个给定度数x轴旋转的元素
+
+
+
+##### rotateX（）方法
+
+围绕其中一个给定度数y轴旋转的元素
+
+
+
+##### 转换属性
+
+| 属性                | 描述                             |
+| ------------------- | -------------------------------- |
+| transform           | 向元素应用2D或3D转换             |
+| transform-origin    | 允许你改变被转换元素的位置       |
+| transform-style     | 规定被嵌套元素如何在3D空间中显示 |
+| perspective         | 规定3D元素的透视效果             |
+| perspective-origin  | 规定3D元素的底部位置             |
+| backface-visibility | 定义元素在不面对屏幕时是否可见   |
+
+
+
+3D转换方法
+
+| 函数                                                         | 描述                                      |
+| :----------------------------------------------------------- | :---------------------------------------- |
+| matrix3d(*n*,*n*,*n*,*n*,*n*,*n*, *n*,*n*,*n*,*n*,*n*,*n*,*n*,*n*,*n*,*n*) | 定义 3D 转换，使用 16 个值的 4x4 矩阵。   |
+| translate3d(*x*,*y*,*z*)                                     | 定义 3D 转化。                            |
+| translateX(*x*)                                              | 定义 3D 转化，仅使用用于 X 轴的值。       |
+| translateY(*y*)                                              | 定义 3D 转化，仅使用用于 Y 轴的值。       |
+| translateZ(*z*)                                              | 定义 3D 转化，仅使用用于 Z 轴的值。       |
+| scale3d(*x*,*y*,*z*)                                         | 定义 3D 缩放转换。                        |
+| scaleX(*x*)                                                  | 定义 3D 缩放转换，通过给定一个 X 轴的值。 |
+| scaleY(*y*)                                                  | 定义 3D 缩放转换，通过给定一个 Y 轴的值。 |
+| scaleZ(*z*)                                                  | 定义 3D 缩放转换，通过给定一个 Z 轴的值。 |
+| rotate3d(*x*,*y*,*z*,*angle*)                                | 定义 3D 旋转。                            |
+| rotateX(*angle*)                                             | 定义沿 X 轴的 3D 旋转。                   |
+| rotateY(*angle*)                                             | 定义沿 Y 轴的 3D 旋转。                   |
+| rotateZ(*angle*)                                             | 定义沿 Z 轴的 3D 旋转。                   |
+| perspective(*n*)                                             | 定义 3D 转换元素的透视视图。              |
+
+
+
+#### 转换过渡
+
+过渡属性
+
+| 属性                                                         | 描述                                         |
+| :----------------------------------------------------------- | :------------------------------------------- |
+| [transition](https://www.runoob.com/cssref/css3-pr-transition.html) | 简写属性，用于在一个属性中设置四个过渡属性。 |
+| [transition-property](https://www.runoob.com/cssref/css3-pr-transition-property.html) | 规定应用过渡的 CSS 属性的名称。              |
+| [transition-duration](https://www.runoob.com/cssref/css3-pr-transition-duration.html) | 定义过渡效果花费的时间。默认是 0。           |
+| [transition-timing-function](https://www.runoob.com/cssref/css3-pr-transition-timing-function.html) | 规定过渡效果的时间曲线。默认是 "ease"。      |
+| [transition-delay](https://www.runoob.com/cssref/css3-pr-transition-delay.html) | 规定过渡效果何时开始。默认是 0。             |
+
+
+
+#### 3D动画
+
+| 属性                                                         | 描述                                                         |
+| :----------------------------------------------------------- | :----------------------------------------------------------- |
+| [@keyframes](https://www.runoob.com/cssref/css3-pr-animation-keyframes.html) | 规定动画。                                                   |
+| [animation](https://www.runoob.com/cssref/css3-pr-animation.html) | 所有动画属性的简写属性。                                     |
+| [animation-name](https://www.runoob.com/cssref/css3-pr-animation-name.html) | 规定 @keyframes 动画的名称。                                 |
+| [animation-duration](https://www.runoob.com/cssref/css3-pr-animation-duration.html) | 规定动画完成一个周期所花费的秒或毫秒。默认是 0。             |
+| [animation-timing-function](https://www.runoob.com/cssref/css3-pr-animation-timing-function.html) | 规定动画的速度曲线。默认是 "ease"。                          |
+| [animation-fill-mode](https://www.runoob.com/cssref/css3-pr-animation-fill-mode.html) | 规定当动画不播放时（当动画完成时，或当动画有一个延迟未开始播放时），要应用到元素的样式。 |
+| [animation-delay](https://www.runoob.com/cssref/css3-pr-animation-delay.html) | 规定动画何时开始。默认是 0。                                 |
+| [animation-iteration-count](https://www.runoob.com/cssref/css3-pr-animation-iteration-count.html) | 规定动画被播放的次数。默认是 1。                             |
+| [animation-direction](https://www.runoob.com/cssref/css3-pr-animation-direction.html) | 规定动画是否在下一周期逆向地播放。默认是 "normal"。          |
+| [animation-play-state](https://www.runoob.com/cssref/css3-pr-animation-play-state.html) | 规定动画是否正在运行或暂停。默认是 "running"。               |
+
+
+
+#### 可见元素裁剪
+
+clip-path:inset(上裁剪距离 右裁剪 下裁剪 左裁剪)；
+
+| 取值类型       | 示例                         | 说明                                                         |
+| -------------- | ---------------------------- | ------------------------------------------------------------ |
+| 长度值（px）   | `inset(10px 20px 10px 20px)` | 从上下各裁 10px，左右各裁 20px（固定像素距离）               |
+| 百分比（%）    | `inset(5% 10% 5% 10%)`       | 从上下各裁元素高度的 5%，左右各裁元素宽度的 10%（相对元素尺寸，推荐用） |
+| 关键字（auto） | `inset(auto 20px auto 20px)` | `auto` 表示 “不裁剪”（此处上下不裁，左右各裁 20px）          |
+
+
+
+
+
+#### 实例
+
+```css
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .line-scan{
+            margin: 10px auto;    /*设置显示位置*/
+            width: 500px;			/*设置长度和粗细*/
+            height: 2px;
+            transform-origin: left center;
+            animation:scan 3.5s ease forwards;
+            animation-delay: 1s;
+        }
+        @keyframes scan {
+            0%{
+                transform: scaleX(0);
+                background: linear-gradient(90deg,#853c4a,#99505e);
+                opacity: 0;
+            }
+            100%{
+                transform: scaleX(1);
+                background: linear-gradient(90deg,#853c4a,#99505e);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="line-scan"></div>
+</body>
+</html>
+```
+
+
+
+### svg矢量图
+
+SVG 专用样式属性，替代普通 CSS 的`color`/`background`：
+
+|    SVG 属性    |         作用         |    对应 CSS 写法     |
+| :------------: | :------------------: | :------------------: |
+|     `fill`     | 填充颜色（图形内部） |    `fill: coral;`    |
+|    `stroke`    |   描边颜色（轮廓）   |   `stroke: #333;`    |
+| `stroke-width` |       描边粗细       | `stroke-width: 2px;` |
+|   `opacity`    |        透明度        |   `opacity: 0.8;`    |
+
+
+
+#### 内联式（推荐）
+
+```html
+<svg class="icon-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="12" cy="12" r="10" stroke="coral" stroke-width="2"/>
+</svg>
+```
 
 
 
@@ -1943,6 +2126,36 @@ document.createElement(参数)
 > 将创建的元素加入页面
 
 document.body.appendChild(元素对象)
+
+
+
+#### 获取窗口参数
+
+##### 获取物理屏幕尺寸（`screen` 对象）
+
+screen.width
+
+screen.height
+
+
+
+##### 获取浏览器视口尺寸（可见区域）
+
+window.innerWidth
+
+window.innerHeight
+
+
+
+##### 获取网页文档总尺寸（完整页面大小）
+
+获取**整个 HTML 文档的实际宽高**（包含滚动隐藏区域），是页面真实大小：
+
+document.documentElement.scrollWidth
+
+document.documentElement.clientWidth
+
+
 
 
 

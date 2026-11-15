@@ -111,6 +111,9 @@ git config --global --get https.proxy
 #端口为代理服务器的端口，v2rayn:10809
 git config --global http.proxy http://127.0.0.1:10808
 git config --global https.proxy http://127.0.0.1:10808
+
+git config --global https.proxy http://127.0.0.1:7897
+git config --global http.proxy http://127.0.0.1:7897
 ```
 
 
